@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace DocentesApp
 {
-    public class PaginaPricipal : ContentView
+    public class PaginaPricipal : ContentPage
     {
         List<string> MiListaEstudiantil;
         ObservableCollection<string> MiListaEstudiantil2;
@@ -134,7 +134,7 @@ namespace DocentesApp
 
         private void BotonAgregar_Tapped(object sender, EventArgs e)
         {
-            AnimacionSaltoBoton((View)sender);
+            AnimacionSaltoBoton(Agregar);
         }
 
         void LlenadoDeEstudiantesQuemados()
@@ -152,7 +152,7 @@ namespace DocentesApp
                 miControlDeBusqueda.Text = nuevoValor.Remove(nuevoValor.Length - 1);
         }
 
-        async void AnimacionSaltoBoton(View control)
+        async void AnimacionSaltoBoton(Image control)
         {
             uint tiempo = 200;
             await control.ScaleTo(0.85, tiempo);
