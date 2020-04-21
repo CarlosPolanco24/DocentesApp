@@ -13,5 +13,6 @@ namespace DocentesApp
         public static int CajasTextoLogin { get; } = 12;
         public static int EnlacesLogin { get; } = 12;
         public static int TextosInformativos { get; } = 14;
+        public static int Items_Lista { get; } = 18;
     }
 }

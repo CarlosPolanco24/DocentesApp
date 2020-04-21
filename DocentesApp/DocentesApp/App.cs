@@ -9,18 +9,21 @@ namespace DocentesApp
 {
     public class App : Application
     {
+        public static MasterPage _masterpage;
         public static Sesion usuario;
         public App()
         {
-            if(Core.isLoggedin() == 1)
+            if (Core.isLoggedin() == 1)
             {
                 usuario = Storage.getSession();
                 //MainPage = new NavigationPage(new PaginaPricipal());
             }
             else
             {
-                MainPage = new NavigationPage(new Login());
-            }            
+                _masterpage = new MasterPage();
+                //MainPage = new Login();
+                MainPage = new NavigationPage(new Login());  //Para navegar entra páginas 
+            }
         }
     }
 }

@@ -26,11 +26,12 @@ namespace DocentesApp
 
         Cargando loading;
 
-        BoxView navegacion;
+        //BoxView navegacion;
 
         //PaginaPricipal test;
         public PaginaPricipal()
         {
+            Title = "       Pagina Principal";
             CrearVistas();
             AgregarVistas();
             AgregarEventos();
@@ -40,10 +41,10 @@ namespace DocentesApp
         {
             loading = new Cargando();
 
-            navegacion = new BoxView
-            {
-                BackgroundColor = Colores.BarraNavegacion
-            };
+            //navegacion = new BoxView
+            //{
+            //    BackgroundColor = Colores.BarraNavegacion
+            //};
 
             MiListaEstudiantil = new List<string>();
 
@@ -83,11 +84,11 @@ namespace DocentesApp
 
         void AgregarVistas()
         {
-            contenedorPrincipal.Children.Add(navegacion,
-                Constraint.RelativeToParent((c) => { return 0; }),                                      //X
-                Constraint.RelativeToParent((c) => { return 0; }),                                      //Y
-                Constraint.RelativeToParent((c) => { return c.Width; }),                                //W
-                Constraint.RelativeToParent((c) => { return c.Height * 0.083; }));                      //H 
+            //contenedorPrincipal.Children.Add(navegacion,
+            //    Constraint.RelativeToParent((c) => { return 0; }),                                      //X
+            //    Constraint.RelativeToParent((c) => { return 0; }),                                      //Y
+            //    Constraint.RelativeToParent((c) => { return c.Width; }),                                //W
+            //    Constraint.RelativeToParent((c) => { return c.Height * 0.083; }));                      //H 
 
             vistaGeneral.Children.Add(miControlDeBusqueda);
 
@@ -162,7 +163,6 @@ namespace DocentesApp
                 await App.Current.MainPage.DisplayAlert("Notificación", "Debe escribir un nombre", "Aceptar");
                 return;
             }
-
             loading.IsVisible = true;
             await Task.Delay(1000);
             loading.IsVisible = false;

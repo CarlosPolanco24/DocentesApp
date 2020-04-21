@@ -8,7 +8,7 @@ namespace DocentesApp
     public class MasterMenu
     {
         public  string Titulo { get; set; }
-        public  ImageSource Icono { get; set; }
-        public  bool IconoVisible { get; set; }
+        //public  ImageSource Icono { get; set; }
+        //public  bool IconoVisible { get; set; }
     }
 }

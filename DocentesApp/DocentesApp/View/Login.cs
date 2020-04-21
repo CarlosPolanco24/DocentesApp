@@ -7,7 +7,7 @@ namespace DocentesApp
     public class Login : ContentPage
     {
         //Logo
-        Image logoUtap, botonVolver;
+        Image logoUtap;
 
         //Bienvenidos
         Label labelBienvenidos,
@@ -46,12 +46,7 @@ namespace DocentesApp
         {
             loading = new Cargando();
 
-            botonVolver = new Image
-            {
-                Source = Imagenes.BotonVolver,
-                IsVisible = false
-            };
-
+         
             //paginaPrincipal = new PaginaPricipal
             //{
             //    TranslationX = 420
@@ -129,7 +124,6 @@ namespace DocentesApp
 
             // Eventos
             botonRegresar = new TapGestureRecognizer();
-            botonVolver.GestureRecognizers.Add(botonRegresar);
 
             TapOlvidarContrasena = new TapGestureRecognizer();
             OlvidarContraseña.GestureRecognizers.Add(TapOlvidarContrasena);
@@ -191,11 +185,6 @@ namespace DocentesApp
             //    Constraint.RelativeToParent((c) => { return c.Width; }),                        //W
             //    Constraint.RelativeToParent((c) => { return c.Height; }));                      //H 
 
-            contenedorLogin.Children.Add(botonVolver,
-                Constraint.RelativeToParent((c) => { return 0; }),                              //X
-                Constraint.RelativeToParent((c) => { return 0; }),                              //Y
-                Constraint.RelativeToParent((c) => { return c.Width * 0.149; }),                //W
-                Constraint.RelativeToParent((c) => { return c.Height * 0.083; }));              //H 
 
             contenedorLogin.Children.Add(loading,
                Constraint.RelativeToParent((c) => { return 0; }),                               //X
@@ -314,8 +303,7 @@ namespace DocentesApp
                     //Rectangle dimensiones = paginaPrincipal.Bounds;
                     //await paginaPrincipal.TranslateTo(0, 0, 200);
 
-                    await Navigation.PushAsync(new PaginaPricipal());
-                    botonVolver.IsVisible = true;
+                    await Navigation.PushAsync(App._masterpage);
                 }
             }
             //Fin Logica Login
