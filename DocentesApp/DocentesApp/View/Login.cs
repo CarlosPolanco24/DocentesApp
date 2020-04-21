@@ -290,9 +290,21 @@ namespace DocentesApp
                 }
                 else
                 {
+                    //Video
+                    //bool respuesta = DependencyService.Get<IRestApi>().CreateClients();
+                    //if (respuesta)
+                    //{
+                    //    await paginaPrincipal.TranslateTo(0, 0, 500);
+                    //}
+                    //else
+                    //{
+                    //    await DisplayAlert("Notificación", "Problemas para la conexión con el servidor", "Aceptar");
+                    //}
+                    //
+
                     await DisplayAlert("Notificacion", "Bienvenido.", "Aceptar");
 
-                    await Task.Delay(2000);
+                    await Task.Delay(1000);
 
                     loading.IsVisible = true;
                     await Task.Delay(1000);
