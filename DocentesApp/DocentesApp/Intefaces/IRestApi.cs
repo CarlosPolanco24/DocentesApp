@@ -4,6 +4,6 @@ namespace DocentesApp
 {
     public interface IRestApi
     {
-        bool CreateClients();
+        ResponseApi LoginApp();
     }
 }

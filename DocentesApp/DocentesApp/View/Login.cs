@@ -280,14 +280,15 @@ namespace DocentesApp
                 else
                 {
                     //Video
-                    //bool respuesta = DependencyService.Get<IRestApi>().CreateClients();
-                    //if (respuesta)
+                    //var respuesta = DependencyService.Get<IRestApi>().LoginApp();
+                    //if (respuesta.exitoso == 1)
                     //{
-                    //    await paginaPrincipal.TranslateTo(0, 0, 500);
+                    //    //await paginaPrincipal.TranslateTo(0, 0, 500);
+                    //    await Navigation.PushAsync(App._masterpage);
                     //}
                     //else
                     //{
-                    //    await DisplayAlert("Notificación", "Problemas para la conexión con el servidor", "Aceptar");
+                    //    await DisplayAlert("Notificación", respuesta.mensaje, "Aceptar");
                     //}
                     //
 
