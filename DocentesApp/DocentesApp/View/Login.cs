@@ -17,7 +17,7 @@ namespace DocentesApp
         Entry Documento, Codigo, Contraseña;
 
         //Gestos
-        TapGestureRecognizer TapOlvidarContrasena, botonRegresar;
+        TapGestureRecognizer TapOlvidarContrasena;
 
         //Boton
         Button AccesoApp;
@@ -125,7 +125,6 @@ namespace DocentesApp
             contenedorLogin = new RelativeLayout();
 
             // Eventos
-            botonRegresar = new TapGestureRecognizer();
 
             TapOlvidarContrasena = new TapGestureRecognizer();
             OlvidarContraseña.GestureRecognizers.Add(TapOlvidarContrasena);
@@ -200,7 +199,6 @@ namespace DocentesApp
         void AgregarEventos()
         {
             AccesoApp.Clicked += AccesoApp_Clicked;
-            //botonRegresar.Tapped += BotonRegresar_Tapped;
             TapOlvidarContrasena.Tapped += TapOlvidarContrasena_Tapped;
         }
 
@@ -313,13 +311,6 @@ namespace DocentesApp
             //Fin Logica Login
             
         }
-
-        //private async void BotonRegresar_Tapped(object sender, EventArgs e)
-        //{
-        //    //await paginaPrincipal.TranslateTo(450, 0, 200);
-
-        //    botonVolver.IsVisible = false;
-        //}
 
         //Animacion Boton
         async Task AnimacionInicial()
