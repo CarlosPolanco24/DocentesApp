@@ -11,16 +11,17 @@ namespace DocentesApp.Droid
 {
     public class Api : IRestApi
     {
-        public ResponseApi LoginApp()
+        public ResponseApi LoginApp(string DocumentID, string Code, string Password)
         {
 			try
 			{
-				RestClient _Client = new RestClient("http://gowtic.com/api_test/ut0-0.php");
+				RestClient _Client = new RestClient("http://todoapicep.azurewebsites.net/api/login/authenticate");
 				RestRequest _request = new RestRequest("", Method.POST)
 				{ RequestFormat = DataFormat.Json };
 
-				_request.AddParameter("usuario", "Utap");
-				_request.AddParameter("password", "123456");
+				_request.AddParameter("DocumentID", DocumentID);
+				_request.AddParameter("Code", Code);
+				_request.AddParameter("Password", Password);
 				//_request.AddBody();
 
 				var respuesta = _Client.Execute(_request);

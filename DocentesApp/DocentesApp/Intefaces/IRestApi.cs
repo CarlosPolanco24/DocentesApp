@@ -4,6 +4,6 @@ namespace DocentesApp
 {
     public interface IRestApi
     {
-        ResponseApi LoginApp();
+        ResponseApi LoginApp(string DocumentID, string Code, string Password);
     }
 }

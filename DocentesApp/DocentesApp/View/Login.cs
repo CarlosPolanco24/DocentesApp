@@ -76,6 +76,7 @@ namespace DocentesApp
                 Placeholder = "No. Documento",
                 PlaceholderColor = Colores.BLanco,
                 FontSize = Palabras.CajasTextoLogin
+                //Keyboard = Keyboard.Numeric
             };
 
             Codigo = new Entry
@@ -83,6 +84,7 @@ namespace DocentesApp
                 Placeholder = "Codigo",
                 PlaceholderColor = Colores.BLanco,
                 FontSize = Palabras.CajasTextoLogin
+                //Keyboard = Keyboard.Numeric
             };
 
             Contraseña = new Entry
@@ -280,31 +282,32 @@ namespace DocentesApp
                 else
                 {
                     //Video
-                    //var respuesta = DependencyService.Get<IRestApi>().LoginApp();
-                    //if (respuesta.exitoso == 1)
-                    //{
-                    //    //await paginaPrincipal.TranslateTo(0, 0, 500);
-                    //    await Navigation.PushAsync(App._masterpage);
-                    //}
-                    //else
-                    //{
-                    //    await DisplayAlert("Notificación", respuesta.mensaje, "Aceptar");
-                    //}
-                    //
+                    var respuesta = DependencyService.Get<IRestApi>().LoginApp(Documento.Text, Codigo.Text, Contraseña.Text);
+                    if (respuesta.exitoso == 1)
+                    {
+                        //await paginaPrincipal.TranslateTo(0, 0, 500);                        
 
-                    await DisplayAlert("Notificacion", "Bienvenido.", "Aceptar");
+                        await DisplayAlert("Notificacion", "Bienvenido.", "Aceptar");
 
-                    await Task.Delay(1000);
+                        await Task.Delay(1000);
 
-                    loading.IsVisible = true;
-                    await Task.Delay(1000);
-                    loading.IsVisible = false;
+                        loading.IsVisible = true;
+                        await Task.Delay(1000);
+                        loading.IsVisible = false;
 
+                        await Navigation.PushAsync(App._masterpage);
+
+                    }
+                    else
+                    {
+                        await DisplayAlert("Notificación", "Error al intentar conectarse con el servidor", "Aceptar");
+                    }
+                    //                    
 
                     //Rectangle dimensiones = paginaPrincipal.Bounds;
                     //await paginaPrincipal.TranslateTo(0, 0, 200);
 
-                    await Navigation.PushAsync(App._masterpage);
+                    //await Navigation.PushAsync(App._masterpage);
                 }
             }
             //Fin Logica Login
