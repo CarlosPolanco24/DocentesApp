@@ -6,6 +6,7 @@ using RestSharp;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(Api))]
+[assembly: Dependency(typeof(ApiPassword))]
 
 namespace DocentesApp.Droid
 {
@@ -37,6 +38,35 @@ namespace DocentesApp.Droid
 				Console.WriteLine(ex.Message);
 				throw ex;
 			}
-        }
-    }
+        }		
+	}
+
+	public class ApiPassword : IRecuperar
+	{
+		public ResponseRescuperarContrasena OlvidarContrasenaApp(string Email)
+		{
+			try
+			{
+				RestClient _Client = new RestClient("http://todoapicep.azurewebsites.net/api/recuperarcontrasena/authenticate");
+				RestRequest _request = new RestRequest("", Method.POST)
+				{ RequestFormat = DataFormat.Json };
+
+				_request.AddParameter("Email", Email);
+				//_request.AddBody();
+
+				var respuesta = _Client.Execute(_request);
+				Console.WriteLine("The Server return: " + respuesta.Content);
+
+				var responseRecuperacionApi = JsonConvert.DeserializeObject<ResponseRescuperarContrasena>(respuesta.Content);
+
+
+				return responseRecuperacionApi;
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				throw ex;
+			}
+		}
+	}
 }

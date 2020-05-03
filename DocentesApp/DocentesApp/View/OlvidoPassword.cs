@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace DocentesApp
@@ -149,22 +150,21 @@ namespace DocentesApp
                 return;
             }
 
-            if (!entryEmail.Text.Contains(".co"))
+            if (!entryEmail.Text.Contains(".co") || entryEmail.Text.Contains(".com"))
             {
-                await DisplayAlert("Notificacion", "La direccion de correo No es valida, Falta un '.co'.", "Aceptar");
+                await DisplayAlert("Notificacion", "La direccion de correo No es valida, Falta un '.co' ó '.com'.", "Aceptar");
 
                 return;
             }
 
-            else
+            var respuesta = DependencyService.Get<IRecuperar>().OlvidarContrasenaApp(entryEmail.Text);
+            if (respuesta.Ok == 1)
             {
                 await DisplayAlert("Notificacion", "Se ha enviado un mensaje de verificacion a su correo.", "Aceptar");
-
-                loading.IsVisible = true;
-                await Task.Delay(1000);
-                loading.IsVisible = false;
-
-                return;
+            }
+            else
+            {
+                await DisplayAlert("Notificación", "Error al intentar conectarse con el servidor", "Aceptar");
             }            
         }
     }
