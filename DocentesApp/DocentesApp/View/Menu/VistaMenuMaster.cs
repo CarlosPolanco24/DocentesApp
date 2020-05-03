@@ -7,6 +7,7 @@ namespace DocentesApp
 {
     public class VistaMenuMaster : ContentPage
     {
+        RelativeLayout VistaMenu;
         StackLayout Vista;
         List<MasterMenu> Menu;
         ListView listView;
@@ -21,14 +22,19 @@ namespace DocentesApp
 
         void CrearVistas()
         {
-            Vista = new StackLayout
+            //Vista = new StackLayout
+            //{
+            //    BackgroundColor = Colores.BarraNavegacion
+            //};
+
+            VistaMenu = new RelativeLayout
             {
                 BackgroundColor = Colores.BarraNavegacion
             };
 
             listas = new BoxView
             {
-                BackgroundColor = Color.White
+                BackgroundColor = Colores.BLanco
             };
 
             //Items de la Lista
@@ -43,7 +49,7 @@ namespace DocentesApp
             listView = new ListView
             {
                 ItemsSource = Menu,
-                BackgroundColor = Color.White,
+                BackgroundColor = Colores.BLanco,
                 ItemTemplate = new DataTemplate(typeof(EstiloTemplate)),
                 SeparatorVisibility = SeparatorVisibility.None,          //Quitar lineas de separacion, si la quiero ve cambio el None por Default.
                 //BackgroundColor = Colores.Color_CuadrosBlancos,
@@ -53,8 +59,13 @@ namespace DocentesApp
         }
         void AgregarVistas()
         {
-            Vista.Children.Add(listView);
-            Content = Vista;
+            VistaMenu.Children.Add(listView,
+                Constraint.RelativeToParent((c) => { return 0; }),                       //X
+                Constraint.RelativeToParent((c) => { return 200; }),                    //Y 
+                Constraint.RelativeToParent((c) => { return 375; }),                    //W 
+                Constraint.RelativeToParent((c) => { return 667; }));                           //H 
+
+            Content = VistaMenu;
         }
         void AgregarEventos()
         {
@@ -74,12 +85,11 @@ namespace DocentesApp
                 //Logica al dar tap.
 
                 case "Registro Notas":
-                    //Console.WriteLine("Hola");
-                    await DisplayAlert("Notificacion", "Bienvenido", "Aceptar");
+
                     break;
 
                 case "Listado Estudiantes":
-                    //Console.WriteLine("Hola Como Estas");
+
                     break;
 
 

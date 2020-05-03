@@ -13,7 +13,7 @@ namespace DocentesApp
             StackLayout CeldaPadre = new StackLayout
             {
                 Padding = 10,    //Espacio qlrededor de todo (arriba,derecha,abajo,izquierda)-> Padding = new Thickness(10,10,10,10)
-                BackgroundColor = Colores.BarraNavegacion,
+                BackgroundColor = Colores.BLanco,
                 WidthRequest = 375,
                 HeightRequest = 70
             };
