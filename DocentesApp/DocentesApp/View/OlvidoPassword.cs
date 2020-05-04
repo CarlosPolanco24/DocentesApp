@@ -157,20 +157,20 @@ namespace DocentesApp
                 return;
             }
 
-            //var respuesta = DependencyService.Get<IRecuperar>().OlvidarContrasenaApp(entryEmail.Text);
-            //if (respuesta.Ok == 1)
-            //{
-            //    await DisplayAlert("Notificacion", "Se ha enviado un mensaje de verificacion a su correo.", "Aceptar");
-            //}
-            //else
-            //{
-            //    await DisplayAlert("Notificación", "Error al intentar conectarse con el servidor", "Aceptar");
-            //}
-
-            else
+            var respuesta = DependencyService.Get<IRecuperar>().OlvidarContrasenaApp(entryEmail.Text);
+            if (respuesta.Ok == 1)
             {
                 await DisplayAlert("Notificacion", "Se ha enviado un mensaje de verificacion a su correo.", "Aceptar");
             }
+            else
+            {
+                await DisplayAlert("Notificación", "Error al intentar conectarse con el servidor", "Aceptar");
+            }
+
+            //else
+            //{
+            //    await DisplayAlert("Notificacion", "Se ha enviado un mensaje de verificacion a su correo.", "Aceptar");
+            //}
         }
     }
 }

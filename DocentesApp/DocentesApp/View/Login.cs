@@ -280,10 +280,10 @@ namespace DocentesApp
                 else
                 {
                     //Video
-                    //var respuesta = DependencyService.Get<IRestApi>().LoginApp(Documento.Text, Codigo.Text, Contraseña.Text);
-                    //if (respuesta.exitoso == 1)
-                    //{
-                        //await paginaPrincipal.TranslateTo(0, 0, 500);                        
+                    var respuesta = DependencyService.Get<IRestApi>().LoginApp(Documento.Text, Codigo.Text, Contraseña.Text);
+                    if (respuesta.exitoso == 1)
+                    {
+                        //await paginaPrincipal.TranslateTo(0, 0, 500);
 
                         await DisplayAlert("Notificacion", "Bienvenido.", "Aceptar");
 
@@ -295,11 +295,11 @@ namespace DocentesApp
 
                         await Navigation.PushAsync(App._masterpage);
 
-                    //}
-                    //else
-                    //{
-                    //    await DisplayAlert("Notificación", "Error al intentar conectarse con el servidor", "Aceptar");
-                    //}
+                    }
+                    else
+                    {
+                        await DisplayAlert("Notificación", "Error al intentar conectarse con el servidor", "Aceptar");
+                    }
                     //                    
 
                     //Rectangle dimensiones = paginaPrincipal.Bounds;
